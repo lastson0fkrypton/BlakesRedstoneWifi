@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "blakesredstonewifi:block/wifi_emitter"
+  }
+}

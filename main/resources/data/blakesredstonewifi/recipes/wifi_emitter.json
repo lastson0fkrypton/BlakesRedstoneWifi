@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RRR",
+    "RSR",
+    "RRR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "minecraft:sculk_sensor"
+    }
+  },
+  "result": {
+    "id": "blakesredstonewifi:wifi_emitter",
+    "count": 1
+  }
+}

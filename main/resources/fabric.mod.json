@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "blakesredstonewifi",
+  "version": "${version}",
+  "name": "Blake's Redstone Wifi",
+  "description": "Redstone Wifi Emitters and Receivers.",
+  "authors": [
+    "You"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.blakesredstonewifi.BlakesRedstoneWifiMod"
+    ],
+    "client": [
+      "com.blakesredstonewifi.BlakesRedstoneWifiClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "0.140.2+1.21.11"
+  }
+}
