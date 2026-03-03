@@ -1,0 +1,11 @@
+{
+  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/sculk_sensor",
+  "textures": {
+    "bottom": "blakesredstonewifi:block/wifi_emitter_bottom",
+    "side": "blakesredstonewifi:block/wifi_emitter_side",
+    "tendrils": "blakesredstonewifi:block/wifi_emitter_tendrils_powered",
+    "top": "blakesredstonewifi:block/wifi_emitter_top_powered",
+    "particle": "blakesredstonewifi:block/wifi_emitter_bottom"
+  }
+}

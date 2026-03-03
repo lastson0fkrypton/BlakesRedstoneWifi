@@ -2,6 +2,7 @@ package com.blakesredstonewifi.network;
 
 import com.blakesredstonewifi.block.WifiReceiverBlock;
 import com.blakesredstonewifi.block.entity.WifiReceiverBlockEntity;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
@@ -77,6 +78,17 @@ public final class WifiNetworkManager {
 
             if (world.getBlockEntity(receiverPos) instanceof WifiReceiverBlockEntity blockEntity) {
                 blockEntity.markDirty();
+            }
+
+            int outputPower = 0;
+            String receiverChannel = network.receiverChannels.get(receiverPos);
+            if (receiverChannel != null && !receiverChannel.isEmpty()) {
+                outputPower = network.getChannelPower(receiverChannel);
+            }
+
+            if (receiverState.contains(WifiReceiverBlock.POWER) && receiverState.get(WifiReceiverBlock.POWER) != outputPower) {
+                receiverState = receiverState.with(WifiReceiverBlock.POWER, outputPower);
+                world.setBlockState(receiverPos, receiverState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             }
 
             world.updateNeighbors(receiverPos, receiverState.getBlock());

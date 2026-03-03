@@ -1,9 +1,11 @@
 package com.blakesredstonewifi.block.entity;
 
+import com.blakesredstonewifi.block.WifiEmitterBlock;
 import com.blakesredstonewifi.network.WifiNetworkManager;
 import com.blakesredstonewifi.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.Block;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -43,6 +45,10 @@ public class WifiEmitterBlockEntity extends BlockEntity {
         }
 
         this.inputPower = nextPower;
+        BlockState state = this.getCachedState();
+        if (state.contains(WifiEmitterBlock.POWER) && state.get(WifiEmitterBlock.POWER) != nextPower) {
+            this.world.setBlockState(this.pos, state.with(WifiEmitterBlock.POWER, nextPower), Block.NOTIFY_LISTENERS);
+        }
         this.markDirty();
         registerOrUpdateNetwork();
     }

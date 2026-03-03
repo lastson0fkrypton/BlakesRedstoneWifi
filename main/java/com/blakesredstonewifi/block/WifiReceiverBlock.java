@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -21,15 +22,19 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class WifiReceiverBlock extends BlockWithEntity {
     public static final MapCodec<WifiReceiverBlock> CODEC = createCodec(WifiReceiverBlock::new);
+    public static final IntProperty POWER = RedstoneWireBlock.POWER;
 
     public WifiReceiverBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getStateManager().getDefaultState().with(POWER, 0));
     }
 
     @Override
@@ -40,6 +45,11 @@ public class WifiReceiverBlock extends BlockWithEntity {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new WifiReceiverBlockEntity(pos, state);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(POWER);
     }
 
     @Override
@@ -59,10 +69,7 @@ public class WifiReceiverBlock extends BlockWithEntity {
 
     @Override
     protected int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-        if (world.getBlockEntity(pos) instanceof WifiReceiverBlockEntity receiver) {
-            return receiver.getOutputPower();
-        }
-        return 0;
+        return state.get(POWER);
     }
 
     @Override

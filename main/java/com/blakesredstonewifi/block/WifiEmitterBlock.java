@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -20,14 +21,18 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class WifiEmitterBlock extends BlockWithEntity {
     public static final MapCodec<WifiEmitterBlock> CODEC = createCodec(WifiEmitterBlock::new);
+    public static final IntProperty POWER = RedstoneWireBlock.POWER;
 
     public WifiEmitterBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getStateManager().getDefaultState().with(POWER, 0));
     }
 
     @Override
@@ -38,6 +43,11 @@ public class WifiEmitterBlock extends BlockWithEntity {
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new WifiEmitterBlockEntity(pos, state);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(POWER);
     }
 
     @Override

@@ -1,7 +1,20 @@
 {
   "variants": {
-    "": {
-      "model": "blakesredstonewifi:block/wifi_receiver"
-    }
+    "power=0": { "model": "blakesredstonewifi:block/wifi_receiver" },
+    "power=1": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=2": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=3": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=4": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=5": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=6": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=7": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=8": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=9": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=10": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=11": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=12": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=13": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=14": { "model": "blakesredstonewifi:block/wifi_receiver_powered" },
+    "power=15": { "model": "blakesredstonewifi:block/wifi_receiver_powered" }
   }
 }

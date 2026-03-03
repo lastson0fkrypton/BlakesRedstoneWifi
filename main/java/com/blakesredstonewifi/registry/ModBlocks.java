@@ -25,6 +25,7 @@ public final class ModBlocks {
             new WifiEmitterBlock(AbstractBlock.Settings.create()
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, WIFI_EMITTER_ID))
                     .nonOpaque()
+                    .luminance(state -> state.get(WifiEmitterBlock.POWER))
                     .strength(1.5F)
                     .requiresTool())
     );
@@ -35,6 +36,7 @@ public final class ModBlocks {
             new WifiReceiverBlock(AbstractBlock.Settings.create()
                     .registryKey(RegistryKey.of(RegistryKeys.BLOCK, WIFI_RECEIVER_ID))
                     .nonOpaque()
+                    .luminance(state -> state.get(WifiReceiverBlock.POWER))
                     .strength(1.5F)
                     .requiresTool())
     );

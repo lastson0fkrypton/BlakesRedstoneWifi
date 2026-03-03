@@ -1,0 +1,11 @@
+{
+  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/sculk_shrieker",
+  "textures": {
+    "bottom": "blakesredstonewifi:block/wifi_receiver_bottom",
+    "inner_top": "blakesredstonewifi:block/wifi_receiver_inner_top_powered",
+    "side": "blakesredstonewifi:block/wifi_receiver_side",
+    "top": "blakesredstonewifi:block/wifi_receiver_top",
+    "particle": "blakesredstonewifi:block/wifi_receiver_bottom"
+  }
+}
