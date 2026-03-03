@@ -1,7 +1,8 @@
 # BlakesRedstoneWifi
 1.21.11 Fabric mod introducing Redstone Wifi Emitters and Receivers
 
-<img width="1367" height="502" alt="image" src="https://github.com/user-attachments/assets/17d0e580-0122-4ae9-840a-974bb2d80f1c" />
+<img width="1102" height="495" alt="image" src="https://github.com/user-attachments/assets/b9af1ac3-3b8b-405f-9750-02159f5517ea" />
+
 
 ## Features
 
